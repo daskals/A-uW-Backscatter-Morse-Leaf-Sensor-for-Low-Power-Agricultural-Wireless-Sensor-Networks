@@ -40,7 +40,7 @@ Apostolos Georgiadis
 
 
 ---
-IEEE Xplore: https://ieeexplore.ieee.org/document/8423620
+IEEE Xplore: https://ieeexplore.ieee.org/document/8423620 \
 Local: http://daskalakispiros.com/files/daskalalakis_sensors_2018.pdf
 
 ---
