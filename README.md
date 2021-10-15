@@ -65,7 +65,6 @@ If you use our design, please cite [[1]](https://ieeexplore.ieee.org/document/84
   year={2018},
   publisher={IEEE}
 }
-}
  
 ```
 
