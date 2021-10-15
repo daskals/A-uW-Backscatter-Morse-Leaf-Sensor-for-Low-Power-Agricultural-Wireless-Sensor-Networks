@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\TAG_v6_Morse_32KHz_time.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>8192</length>
+      <used>1119</used>
+      <free>7073</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>1024</length>
+      <used>71</used>
+      <free>953</free>
+    </memory>
+  </executable>
+</project>
