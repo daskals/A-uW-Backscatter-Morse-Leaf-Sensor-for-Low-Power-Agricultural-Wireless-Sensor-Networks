@@ -1,0 +1,1121 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{cite}
+\usepackage{array}
+\usepackage{eurosym}
+\usepackage{balance}
+\usepackage{url}
+
+\usepackage{color}
+
+\newcommand{\hilight}[1]{\colorbox{yellow}{#1}}
+
+
+\newcommand{\highlight}[1]{%
+  \colorbox{yellow}{$\displaystyle#1$}}
+
+\hyphenation{op-tical net-works semi-conduc-tor mo-nitoring}
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+
+
+\begin{document}
+\title{A uW Backscatter-Morse-Leaf Sensor for Low-Power Agricultural Wireless Sensor Networks}
+
+
+\author{
+
+\IEEEauthorblockN{Spyridon N. Daskalakis,~\IEEEmembership{Student Member,~IEEE}, 
+George Goussetis,~\IEEEmembership{Senior Member,~IEEE},
+Stylianos D. Assimonis,
+Manos M. Tentzeris,~\IEEEmembership{Fellow,~IEEE} and 
+Apostolos Georgiadis,~\IEEEmembership{Senior Member,~IEEE}
+}
+                             
+%\vspace{-1cm}
+\thanks{
+This work was supported by Lloyd's Register Foundation (LRF) and the International Consortium in Nanotechnology (ICON). The work of M. M. Tentzeris was supported by the National Science Foundation (NSF) and the Defense Threat Reduction Agency (DTRA).
+
+An earlier version of this paper was presented at the  IEEE Sensors Conference, Glasgow, United Kingdom, 29 Oct - 01 Nov 2017  and was published in its Proceedings. Conference version of  this paper is available online at http://ieeexplore.ieee.org/document/8233888/.
+
+S. N. Daskalakis, G. Goussetis and A. Georgiadis  are with School of Engineering \& Physical Sciences;  Institute of Sensors, Signals and Systems, Heriot-Watt University, Edinburgh, EH14 4AS, Scotland,
+UK (e-mail: sd70@hw.ac.uk, g.goussetis@hw.ac.uk, apostolos.georgiadis@ieee.org).
+
+S. D. Assimonis is with School of Electronics, Electrical Engineering \& Computer Science, Queen's University Belfast, Belfast, BT3  9DT, UK (e-mail: s.assimonis@qub.ac.uk).
+
+M. M. Tentzeris is with School of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta, GA, 30332-250, USA (e-mail: etentze@ece.gatech.edu).
+
+}}
+
+\maketitle
+
+
+\begin{abstract}
+Nowadays, the monitoring of  plant water stress is of high importance in smart agriculture.
+%
+Instead of the traditional ground soil-moisture measurement, leaf sensing is a new technology, which is used for the detection of plants needing water.
+%
+In this work, a novel, low-cost and low-power system for leaf sensing using a new plant backscatter sensor node/tag is presented.
+%
+The latter, can result in the prevention of water waste (water-use efficiency), when is connected to an irrigation system.
+%
+Specifically, the sensor  measures the temperature differential between the leaf and the air, which is directly  related to the plant water stress.
+%
+Next, the tag collects the information from the leaf sensor through an analog-to-digital converter (ADC), and then, communicates remotely with 
+a low-cost software-defined radio (SDR) reader  using monostatic backscatter architecture.
+%
+The tag  consists of  the sensor board, a microcontroller, an external timer  and an RF front-end for communication.
+%
+The timer produces a subcarrier frequency  
+for simultaneous access of multiple tags.
+%
+The proposed work could be scaled and be a part of a large 
+backscatter wireless sensor network (WSN). 
+%
+The communication protocol exploits 
+the low-complexity  Morse code modulation
+on a $868$~MHz carrier signal.
+%
+The presented novel  proof-of-consent prototype is batteryless and was powered by a flexible solar panel consuming power around $20~\mu$W.  
+%
+The performance was validated in an indoors environment where wireless communication was successfully achieved up to $2$~m distance.
+%
+\end{abstract}
+
+\begin{IEEEkeywords}
+Backscatter sensor networks, environmental monitoring, Internet-of-Things (IoT), leaf sensor, Morse code, precision agriculture, radio frequency identification (RFID) sensors, software-defined radio (SDR). 
+\end{IEEEkeywords}
+
+
+
+
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+\label{sec:intro}
+Precision agriculture allows farmers to maximize yields using minimal resources such as water, fertilizer, pesticides and seeds. 
+%
+By deploying sensors and monitoring fields, farmers can manage their crops at micro scale  \cite{ivanov2015precision}.
+% 
+This is also useful in order to predict diseases, conserve the resources and reduce the impacts of the environment. 
+%
+%Smart agriculture has roots going back to the 1980s when Global Positioning System (GPS) capability became accessible for civilian use. 
+%
+%Once farmers were able to accurately map their crop fields, they could monitor and apply fertilizer and weed treatments only to areas that required it. 
+%
+During the 1990s, early precision agriculture users adopted crop yield monitoring to generate fertilizer and pH correction recommendations. 
+%
+As more variables could be measured by sensors and were introduced into a crop model, more accurate recommendations could be made.
+%
+The combination of the aforementioned systems with wireless sensor networks (WSNs) allows multiple unassisted embedded devices (sensor nodes) to transmit  wirelessly data to central base stations \cite{ruiz2009review, yu2009zigbee}.
+%
+The base stations are able to store the data into cloud databases
+for worldwide processing and visualization  \cite{fahmi2017prototype}. 
+% 
+Data (e.g., temperature, humidity, pressure) are collected from different on-board physical sensors: dielectric soil moisture sensors, for instance,  are widespread  for moisture measurements, since they can estimate the moisture levels through the dielectric constant of the soil, which changes as the soil moisture is changing.
+
+%
+Leaf sensing is an another way to measure the water status of a plant. 
+%
+When compared to soil moisture sensors, they can provide more accurate data since the measurements are directly taken on the plant and not through the soil or the atmosphere (air), which surround the latter \cite{palazzari2017leaf}. 
+%
+Commercial   leaf sensors  are involve   phytometric devices  that measure  the water deficit stress (WDS) by monitoring the moisture level in plant leaves. 
+%
+In recent work \cite{seelig2012irrigation}, a leaf sensor is used to measure the plant's leaf thickness in order to determine the WDS.
+%
+The  sensor is provided by  AgriHouse Inc.  and it is suitable for  real-time monitoring in  aeroponics, hydroponics and drip irrigation systems \cite{SG-1000}.
+%
+In an extreme WDS scenario, the leaf thickness decreased dramatically (by as much as $45$\%) within a short period of time ($2$~hours). 
+%
+On other occasions, the leaf thickness was kept fairly constant for several days, but decreased substantially when WDS became too severe for the plant \cite{seelig2012irrigation}.
+%
+Despite such favourable features, this class of sensors can only be used  in controlled environments (i.e., greenhouses) in  combination with other type of  sensors.
+%
+This is because a direct relationship seems to exist between leaf thickness and the relative humidity of the ambient air, temperature, soil temperature and soil salinity\cite{seelig2012irrigation}.  
+%
+
+A different type of leaf sensor for WDS monitoring,  is described in \cite{palazzari2017leaf} and is using two  temperature sensors.
+%
+The monitoring is based on  the temperature difference between the leaf and the air ($T_\text{leaf}- T_\text{air}$). 
+% 
+This difference is strictly related to the plant water stress and can be used as decision parameter in a  local irrigation system \cite{abraham2000irrigation}.
+%
+The first sensor measures the canopy temperature on  the leaf ($T_\text{leaf}$)  and the second the atmospheric temperature ($T_\text{air}$).
+%
+The use of canopy temperature as an indicator of crop water stress has been the subject of much research over the past $30$ years \cite{patel2001canopy}.
+%
+Canopy temperature and water stress are related: 
+when the soil moisture is reduced,   stomatal closure occurs on the leaves resulting to reduced   transpirational cooling. 
+%
+The canopy temperature is then increased above that of the air
+\cite{pearcy1971photosynthetic}.
+%
+In a plant with adequate water supply, the term  $T_\text{leaf}- T_\text{air}$ will be zero or negative, but
+when the available water is limited, the difference will be
+positive.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure1.eps}
+\caption{Monostatic backscatter communication setup. Plant sensing is achieved by the tags and the information is sent back to a low-cost reader. Information is modulated using Morse coding on a $868$~MHz radiated carrier.}
+\label{fig:backscatterlogic}
+\end{figure}
+The leaf sensors that were described above   are different from the well known leaf wetness  sensors (LWS).
+%
+The LWS can  detect the leaf wetness which is a meteorological parameter that describes the amount of dew and precipitation left on leaf surfaces. 
+%
+Leaf wetness can result from dew, fog, rain, and overhead irrigation.
+%
+Today, the LWS   are used most for  disease-warning systems 
+\cite{hornero2017novel} and provided by companies like Davis Instruments Inc. and Meter Environment  Inc. \cite{PHYTOS-31}. 
+
+
+The agricultural applications frequently involve large, expansive areas where wire connection for communication and power is undesirable or impracticable \cite{ruiz2009review}. 
+%
+The high-cost and the high-power requirements of the today WSN hardware prevent its usage in agriculture.
+%
+The deployment of these systems therefore relies  on reducing the cost to an affordable amount. 
+%
+Capital expenditure relates to the cost of the hardware, which should therefore be maintained minimum.
+%
+Energy autonomy for the sensor achieved by a combination of minimizing power consumption and harvesting ambient energy is likewise critical in order to reduce operational costs. 
+%
+Above factors drive the demand for low-cost, low-power WSN systems.
+
+
+
+Backscatter radio communication (i.e., reflection and modulation of an incident radio frequency carrier) 
+in combination with the use of energy assisted (or not) sensor tags is a method  that addresses aforementioned constraints.
+%
+It is used in radio frequency identification (RFID)
+applications and offers ultra-low-power and low-cost aspects \cite{sample2008design}.  
+%
+The  wireless communication part of each tag can be 
+simplified into a single radio frequency  (RF) transistor and an antenna, 
+which can be used for each sensor tag to send information to a base station (reader).
+%
+It is a very energy-efficient communication technique
+thus the RF signal is used not only for the communication, but also, for the power of the tag \cite{assimonis2015sensitive}.
+%
+In the recent literature,  backscatter WSNs  for smart agriculture purposes  \cite{daskalakis2016soil, kampianakis2014wireless, konstantopoulosconverting, pichorim2018two} were proposed. 
+%
+In \cite{daskalakis2016soil, kampianakis2014wireless},
+soil moisture  and humidity  sensors were proposed.
+%
+A proof of concept demonstration was presented where the tags send measurements to a software-defined radio (SDR)
+reader. 
+%
+The WSNs  employ semi-passive tags in bistatic topology and
+each backscatter sensor tag has power consumption of the order of $1$~mW.
+%
+The achieved communication range  (tag-reader distance) is of the order of $100$~m; this is achieved by supplying the tags with small batteries thereby enabling increased communication range.
+%
+In \cite{konstantopoulosconverting},  electric potential (EP) signals of plants can be measured by the tag in order to estimate when the plant needs water; in this work, the tags are batteryless and they harvest energy from the plant itself.
+%
+In \cite{pichorim2018two}  two UHF RFID sensor nodes  for soil moisture sensing were designed based on conventional RFID chips.
+
+This work discusses the implementation of a low-cost and low-power wireless sensor system for agricultural applications, which uses a novel plant, backscatter sensor node/tag.
+%
+Preliminary results on this sensor node were proposed in \cite{daskalakis2017backscatter}.
+%
+The tag is connected with a temperature leaf sensor board  for WDS measurements and reflects RF signals from a carrier emitter.
+%
+It is noted that the proposed system can be a part of a backscatter WSN, transmitting   data to a reader as shown in Fig.~\ref{fig:backscatterlogic}.
+%
+Specifically the tag architecture  consists of a microcontroller (MCU) and an external timer for the modulation.
+%
+There is also a sensor board for the   measurements and
+an FR front-end for the backscatter communication.
+%
+The tag reads the information from the sensors and generates pulses that control an RF switch. 
+%
+
+The low complexity Morse code technique was selected for the backscatter modulation and it is the first time that  Morse code is used in a backscatter WSN system. 
+%
+Morse code uses On-Off-Keying (OOK) modulation  which means that a  frequency  signal exists in only two states either ``On" or  ``Off".
+%
+Morse code and OOK contribute to architectural and power consumption efficiencies for the tag.
+%
+A low-cost   SDR is used as  reader and collects the signals for further processing. 
+%
+The $868$~MHz in the European RFID band was selected as carrier emitter frequency.
+
+The structure of the this paper  is as follows: Section~\ref{sec:Backscatter_morse} provides the basic principles of backscatter  communication and the Morse encoding.
+%
+In  Section~\ref{sec:tag} the design  and the implementation of the tag is described. 
+%
+Section~\ref{sec:receiver} discusses the hardware and software part of the low-cost
+receiver. 
+%
+Section~\ref{sec:exp} presents the  proof-of-concept experimental setup and a communication indoor demo.
+%
+In Section~\ref{sec:comparison}, the benefits of our proposed low-power WSN and future work are discussed.
+%
+Finally, section~\ref{sec:conclusion} includes concluding remarks.
+
+
+
+\section{Backscatter and Morse Encoding}
+\label{sec:Backscatter_morse}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure2.eps}
+\caption{Left: In Backscatter principle when a $F_c$ carrier  exists 
+and the RF switch frequency is $F_\text{tag}$, two subcarriers appear with frequencies $F\text{c} \pm F_\text{tag}$.
+Right: Morse code symbols.}
+\label{fig:morse}
+\end{figure}
+
+
+A typical  backscatter communication system requires three devices: a tag, an emitter and a reader. 
+%
+Traditional batteryless RFID systems utilize monostatic architectures, where the reader and the emitter are  in the same box.
+%
+In this work this architecture is employed; the emitter transmits a continuous wave (CW) signal at frequency $F_\text{c}$ = $868$~MHz.
+%
+The tag receives  and scatters a fraction of it back to the reader as shown in Fig.~\ref{fig:backscatterlogic}.
+%
+The backscatter binary communication can be implemented on the tag using an RF switch, an antenna and a control unit.
+%
+The switch  alternates the load of the antenna between two values ($Z_{1/2}$) and offers two reflection coefficients, ($\Gamma_{1/2}$), according to
+%	
+\begin{align}
+\Gamma_\text{1/2}=\frac{Z_\text{1/2}-Z^{*}_\text{a}}{Z_\text{1/2}+Z_\text{a}},
+\label{eq:gamma}
+\end{align}
+%
+with  $Z_\text{a}$,  the antenna impedance  equal with $50$~Ohm. 
+%
+When the CW  with frequency $F_\text{c}$ arrives on the antenna
+and the  RF switch frequency is $F_\text{tag}$, frequency modulation occurs and two subcarriers appear in the spectrum with frequencies $F_{\text{sub1/2}} = F_{\text{c}} \pm F_{\text{tag}}$.
+%
+The reflected signal (subcarriers) and the carrier  are depicted in Fig.~\ref{fig:morse} (left). 
+%
+The subcarriers are  next modulated  using the Morse code scheme as it is described below.
+
+
+Morse code is a method of transmitting text information as a series of On-Off tones, named after the inventor of the telegraph Samuel F. B. Morse  in the 1830s \cite{fahie1884history}.
+%
+It is referred as the earliest type of binary digital communications
+since the code is made solely from ones and zeros (``On" and ``Off"). 
+%
+%In modern times Morse code is still used widely in amateur radio communications, as Morse  coded signals can get a message through noise, whereas a voice signal often cannot.
+%
+Each letter of the alphabet is translated to combinations of dots  ``."  and dashes  ``-" that are sent over telegraph wires or by radio waves from one place to another.
+%
+For example, the  letter ``A" is translated to the sequence ``.-" with elements one dot and one dash symbol.
+%
+Lets assume that  the duration of a dot ($T_\text{dot}$) is one unit, then  the duration a dash is three units ($3T_\text{dot}$). 
+%
+Dot and dash symbols are followed by a short silence, equal to one unit (Fig.~\ref{fig:morse}, right). 
+%
+The space between the elements of one letter/character is one unit, between characters is three units and between words, seven units.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\columnwidth]{Figures/Figure3.eps}
+\caption{Printed circuit boards of the tag and the solar cell.
+The  watchdog timer (top) and the timer  module (bottom)  are connected with the main processor unit in the middle.}
+\label{fig:PCBs}
+\end{figure}
+The Morse code is the only digital modulation  designed to be easily read without a computer.
+%
+Today it is usually used by radio amateurs and it is the  fist time that is used in backscatter communication.
+%
+The OOK modulation is  used to transmit Morse code signals  over  a  fixed radio frequency.
+%
+The OOK  is a simplest form of amplitude-shift keying (ASK) modulation that can represent digital data using  a presence (``On") or an absence (``Off") of a carrier signal.
+%
+With  OOK modulation and thus Morse code,  the complexity of the receiver and the tag is drastically simplified compared to a frequency modulation (FM) scheme thus there is no need for a different frequency for each symbol \cite{proakis2008digital}.
+%
+Also, Morse code was designed so that the most frequently used letters have the shortest codes. In general, code length increases as frequency decreases. 
+
+In this work the ``."  (dot of Morse code) is implemented as a  signal with a specific duration $T_\text{dot}$ and frequency $F_\text{tag}$.
+%
+As it is expected the ``-"  (dash in Morse code) is then implemented using a signal of the same frequency with duration equal to three times that of the dot signal.
+%
+The $T_\text{dot}$ is defined by the MCU and the  $F_\text{tag}$ is defined by the external timer of the tag.
+%
+The dot and dash frequency signals are shown in Fig.~\ref{fig:morse} (left). 
+%
+The speed of Morse code is stated in words per minute (WPM) and 
+according to the standards, the word PARIS is used to determine it. 
+%
+The word is translated to exactly $50$ units and  one dot duration is defined by the formula:
+$T_\text{dot} = 1200 / \text{WPM}$ with $T_\text{dot}$ in ms. 
+
+
+
+\section{Tag Implementation}
+\label{sec:tag}
+
+\subsection{Main Unit}
+\label{subsec:mainunit}
+	
+
+	
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure4.eps}
+\caption{The schematic of the tag's main unit. The main part, is a low-power MCU that controls the sensors, the timer and the RF front-end.}
+\label{fig:main_unit}
+\end{figure}
+
+The proof-of-concept tag consists of five different parts  implemented in  different printed circuit boards (PCBs) for simplifying debugging. 
+%
+These parts are the MCU unit, the timer part, the watchdog timer part, the sensor board, and finally the RF front-end. 
+%
+The MCU unit (Fig.~\ref{fig:PCBs}, middle) is the main part of the system and it is responsible for the data sensor acquisition, the implementation of the Morse code symbols and the control of the other parts. 
+%
+The schematic of the main system is depicted in Fig.~\ref{fig:main_unit}.
+%
+The ultra-low-power $8$-bit PIC16LF1459  from Microchip with current consumption  of only $25~\mu$A/MHz at $1.8$~V \cite{PIC16LF1459} was selected for the MCU.
+%
+The MCU collects data from the sensor board using the embedded analog-to-digital converter (ADC) with $10$-bit resolution.
+%
+It contains also a digital-to-analog converter (DAC) with $5$-bit resolution.     
+%
+The internal $31$~kHz low-power  oscillator was utilized as clock source in order to reduce the  power consumption of the tag.
+The  MCU is responsible to supply  all the other parts with  voltage when  it is necessary.
+%
+The main part is connected with a $\mu$W timer for the subcarrier signal ($F_\text{tag}$) production 
+and an external watchdog timer to wake up the MCU from the ``sleep" operation mode. 
+%
+In sleep mode the MCU  current consumption was only $0.6~\mu$A at  $1.8$~V.
+%
+
+\subsection{Timers}
+\label{subsec:Timers}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\columnwidth]{Figures/Figure5.eps}
+\caption{Timer and  RF front-end schematic of the tag. The timer produces  square wave pulses with $50\%$ duty circle and supplies the RF front-end through a modulation switch (ADG902). The ADG902 switch is controlled by the MCU.}
+\label{fig:timer}
+\end{figure}
+
+
+
+
+The timer module (Fig.~\ref{fig:PCBs}, bottom) consists of a very low-power timer (TS3002), a voltage reference and a switch.
+%
+It is responsible for producing the subcarrier frequency of the tag  $F_\text{tag}$ and modulating this subcarrier through the  switch. 
+%
+The low-power,  single-pole single-throw   (SPST) switch ADG902  was used in this case and  one of the MCU input/output (I/O) pins was programmed to provide the necessary  Morse code  pulses  for the control.
+%
+The implemented circuit is depicted in Fig.~\ref{fig:timer}.
+%
+The TS3002 is a  CMOS oscillator provided by Silicon Labs Inc., fully 
+specified to operate at around $1$~V  and to consume current lower than  $5~\mu$A  with an output frequency range from $5.2$~kHz to $290$~kHz  \cite{TS3002}.
+%
+The timer  was supplied by  a voltage reference integrated circuit (IC) XC6504 at $1.2$~V   \cite{XC6504}  in order to reduce the power consumption. 
+%
+XC6504 provides also stable reference voltage at the ADC  of the tag  and it is activated by an I/O pin of MCU.
+%
+The output frequency of the timer is programmed by using two parallel external resistors, a capacitor and a voltage value. 
+%
+The square wave pulses  have  $50~\%$ duty
+cycle and the   maximum oscillation frequency when a zero voltage is applied at $V_\text{prog}$, is given by
+%
+\begin{align}
+F_\text{tag,max} &=  \frac{1}{1.19  C_{1} R_\text{set}},
+\label{eq:fmax}
+\end{align}
+with  $R_\text{set}= R_\text{1}R_\text{2}/(R_\text{1}+R_\text{2})$.
+%
+In our proof-of-concept prototype  two  identical resistors were used with value of $6.2$~MOhm and tolerance $1\%$ in order to avoid the frequency jitter.
+%
+The output frequency was programmed to $34.3$~kHz and the power consumption of the timer circuit was measured at $2.62$~uW.
+%
+The  above measurement includes the power consumption of the  voltage reference IC.
+%
+%The timer module was fabricated in a separate PCB for debug purposes  and is depicted in Fig.~\ref{fig:PCBs} (Bottom). 
+%
+%
+The TS3002 can be configured as a voltage controlled oscillator (VCO) by applying  a positive voltage value at  $V_\text{prog}$ terminal and the $F_{\text{tag}}$ frequency  is defined as \cite{KonstantopoulosMSc}:
+%
+\begin{align}
+F_\text{tag}&=V_\text{prog} \frac{-F_\text{tag,max} }{V_\text{prog,max}}+F_\text{tag,max},
+\label{eq:fmax}
+\end{align}
+%
+with $V_\text{prog,max}$,   the maximum value of  $V_\text{prog}$ when the timer gives zero frequency at its output. 
+%
+In Fig.~\ref{fig:timer_power} the ultra-low-power consumption of the timer versus different frequencies at the output is shown. 
+%
+Each frequency value corresponds to a different control voltage value ($V_\text{prog}$).   
+%
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\columnwidth]{Figures/Figure6.eps}
+\caption{Power consumption of the TS3002 timer versus the output frequency ($F_\text{tag}$) versus the control voltage $V_\text{prog}$.}
+\label{fig:timer_power}
+\end{figure}
+
+In case of a multiple access scheme, we have multiple tags in the same network sending information simultaneously. 
+%
+Each tag must operate in  different $F_{\text{tag}}$  frequency  and the embedded  DAC could be used in order to tune every tag in different subcarrier. 
+%
+The DAC can supply the timer with $2^5$ distinct voltage levels ($V_\text{prog}$) corresponding to $32$ distinct subcarriers resulting in $32$ tags in the same network.
+%
+In this work the DAC is not used in order to reduce the overall power consumption of the prototype tag. 
+%
+The  subcarrier frequency was programmed manually by using the two resistors and $V_\text{prog}$ terminal was connected to the ground.
+
+
+For minimization of the average power consumption, a duty cycle operation of the tag was programmed.
+%
+The tag was active only for a desired minimum period of time and a watchdog timer was  used  as a real-time clock (RTC). 
+%
+Specifically, the nano power TPL5010 timer from Texas Instruments \cite{instrumentsTPL5010} 
+ was utilized, which consumes  only $35$~nA.
+%
+The timer can work as RTC and allows the MCU to be placed in  sleep mode.  
+%
+The timer can provide an interrupt signal in selectable timing intervals from $0.1$ to $7200$~s by programming  two external parallel resistors.
+%
+It was programmed to wake up the MCU every $4$~s 
+activating the duty cycle operation of the system.
+%
+The PCB of the watchdog timer is shown in Fig.~\ref{fig:PCBs} (top).
+
+\subsection{Sensor Board}
+\label{subsec:sensorboard}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\columnwidth]{Figures/Figure7.eps}
+\caption{Printed circuit board with  low-power LMT84 temperature sensors. The  sensor board can be placed easily on a leaf.}
+\label{fig:sensboard}
+\end{figure}
+
+
+The sensor board consists of two  analog  temperature sensors ``LMT84" by Texas Instruments (Fig.~\ref{fig:sensboard}, left).
+Each sensor is connected with an  ADC input  and consumes $5.4~\mu$A  at $1.8$~V  \cite{instrumentsLMT84}.
+%
+The accuracy of each one is $\pm 0.4^\circ C$, while both were placed on a ``clip" scheme board in order to be easily mounted on a leaf. 
+%
+The prototype placed on a leaf is depicted in  Fig.~\ref{fig:sensboard}, (right).
+%
+The temperature sensor seen on the top measures the air temperature ($T_\text{air}$), while a similar sensor under the leaf surface is placed in direct contact with the leaf and  measures the canopy temperature $T_\text{leaf}$. 
+The transfer function of the each sensor is defined as \cite{instrumentsLMT84}:
+\begin{align}
+T_\text{leaf/air} &= \frac{5.506-\sqrt{36.445-0.00704V_\text{leaf/air}}} {-0.00352
+}+30,
+\label{eq:temp}
+\end{align}
+%
+where $V_\text{leaf/air}$ is the ADC value in mV and $T_\text{leaf/air}$ is temperature in $^\circ C$. The MCU collects  data from sensors one by one in order to minimize the instantaneous power consumption. 
+%
+The two  ADC  measurements were encoded using the Morse code and were sent back to the receiver. 
+%
+At the receiver, the signal from both sensors is decoded in terms of a voltage value (in mV) and the temperature is then calculated using formula (\ref{eq:temp}). Subsequently, the temperature difference  $T_\text{leaf}-T_\text{air}$ is estimated and recorded.
+
+
+\subsection{RF Front-end}
+\label{subsec:watchdog}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure8.eps}
+\caption{Top: Low-cost software-defined radio. Bottom: RF front-end board with ADG919 switch.}
+\label{fig:rffront}
+\end{figure}
+
+The RF front-end part consists of an RF switch and a custom dipole antenna as it is depicted in Fig.~\ref{fig:rffront} (bottom).  
+%
+The RF front-end  is connected to the ADG902 switch of the timer module (Fig.~\ref{fig:timer}). 
+%
+It is used  for the wireless communication with the reader  and  it it responsible for creating the reflections of the incident CW signal.
+%
+The single-pole, double-throw  (SPDT) switch ADG919 \cite{ADG919} was selected due to its
+low insertion loss  and high ``OFF" isolation. 
+% 
+The ``RFC"  and the  ``RF2" terminals of the RF switch were connected to the two arms of dipole antenna.
+%
+It was connected directly with the RF switch without  an SMA connector in order to avoid the connectors losses.  
+%
+The dipole antenna  has omnidirectional attributes at the vertical to its axis level and was designed for operation at $868$~MHz. 
+%
+The bottom picture of Fig.~\ref{fig:rffront} shows the fabricated prototype  and the dimensions of the antenna. 
+%
+The RF Front-end  was fabricated  using copper tape on cardboard substrate.
+
+
+
+\subsection{Tag Analysis}
+\label{subsec:taganalysis}
+
+In this work  a solar panel harvester was employed  for powering the tag.
+%
+Solar  energy could be used to power the tag also in combination with other energy harvesting technologies \cite{niotaki2014solar}. 
+%
+This solar module is the flexible, thin-film SP3-37  provided by  PowerFilm Inc. \cite{SP3-37}.
+%
+The solar panel charges a $11$~mF super capacitor (CPH3225A) instead of a battery through a low voltage drop  Schottky diode. 
+%
+For the diode, the SMS7630-079LF by Skyworks Inc. with forward voltage drop only $150$~mV was selected. 
+%
+The solar panel, the diode and the capacitor positions are depicted in Fig.~\ref{fig:PCBs}. 
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.7\columnwidth]{Figures/Figure9.eps}
+\caption{Flow chart of the tag algorithm. This algorithm was implemented in the MCU and controls all the peripherals of the tag.}
+\label{fig:tagalgorithm}
+\end{figure}
+
+
+On the tag, a real-time algorithm  was implemented in order to read
+the sensor information and  wirelessly transmit it to the receiver. 
+%
+The steps of the algorithm are  shown in Fig.~\ref{fig:tagalgorithm}.
+%
+Initially, an interrupt signal coming from  the watchdog timer is used to wake up the MCU. 
+%
+Next, initialization of the system (ADC, clock, I/O pins) is achieved and the ADC is enabled for data capture.  
+%
+The two temperature sensors are  consecutively powered  and the ADC
+reads the data from each one.
+%
+The ADC is turned off immediately after this action for reducing the energy consumption.
+%
+In the next step, the  TS3002 timer and the  ADG902/919 switches are switched on two steps before the data sending.
+%
+ This is necessary for the frequency stabilization of the timer.
+%
+The tag was programmed to send a Morse coded word with fixed format
+every time  the algorithm is running.
+% 
+The format of the word was defined as  ``$ADC_\text{DATA1}$\textbf{E}$ADC_\text{DATA2}$"
+with $ADC_\text{DATA1}$, $ADC_\text{DATA2}$,  the ADC values, varied for $0$ to $1023$. 
+%
+The sensor data were separated by the letter ``E" and there are not any spaces between them. 
+%
+The goal was to create a short word to minimize the  transmission time and thus the energy consumption.
+% 
+The letter ``E" is the most common letter in English alphabet and has the shortest code, a single dot.
+%
+The word is then translated in dots and dashes using the frequency  $F_\text{tag}$ of the timer and  baseband pulses coming from the MCU. 
+%
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure10.eps}
+\caption{Oscilloscope measurement of a Morse coded word: ``. . - - - ~ . ~ . . . . -" corresponding to ''$2$\textbf{E}$4$" word. This  square wave signal is used to control the RF front-end.}
+\label{fig:word}
+\end{figure}
+%
+
+The MCU produces  baseband pulses that contain the dots, dashes  and  the spaces between them.
+%
+This signal is  coming  from  an  I/O  pin and is used to modulate the timer's frequency signal through the ADG902  switch.
+%
+In Fig.~\ref{fig:word} an oscilloscope  measurement of a modulated  example signal 
+at  the  output of ADG902 switch  is shown.
+%
+%
+The depicted word is the ``$2$\textbf{E}$4$" which is translated in ``. . - - - ~ . ~ . . . . -", while 
+%
+each dot/dash is a $33$~kHz signal with different duration.
+%
+The required spaces between the  Morse code symbols can also be observed.
+%
+%
+In order to send this word wirelessly, the RF switch ADG919 is fed with this signal and the incident CW carrier is modulated again by the tag information. 
+%
+In the last step of the algorithm, the  switches and the timer  were switched off and the tag  goes to sleep mode.
+%
+The time duration of the algorithm depends from the ADC data and the  worst-case scenario is the word  ``$1023$\textbf{E}$1023$". 
+%
+In that case  the duration of the hole process lasts $2.8$~s assuming $104.3$~WPM speed.
+
+
+
+
+\section{Receiver}
+\label{sec:receiver}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.6\columnwidth]{Figures/Figure11.eps}
+\caption{Flow chart of the real-time receiver algorithm. The decoding algorithm was implemented in MATLAB software.}
+\label{fig:recalg}
+\end{figure} 
+
+In our system the  temperature  ADC data are received  by a low-cost SDR. 
+%
+This receiver is the   ``NESDR SMArt" SDR available by the NooElec   Inc. (Fig.~\ref{fig:rffront}, top) \cite{NESDR}.
+%
+It is an improved version of classic RTL SDR dongle based on the same
+RTL2832U demodulator with USB interface and R820T2 tuner. 
+%
+The tuning frequency range varies  from $24$~MHz to $1850$~MHz with sampling rate up to
+$2.8$~MS/s and noise figure about $3.5$~dB. 
+%
+Gain control is also provided through the embedded low noise amplifier (LNA)
+at the input of R820T2, while  at the output through a variable gain amplifier (VGA). 
+%
+It  down-converts the received RF signal to baseband and it  sends real (I) and imaginary (Q) signal samples to a computer through an USB interface. 
+%
+All the above parameters  make it suitable for our application also noting that the required sampling rate is quite low ($250$~kS/s) and it costs only    $12.8$~GBP. 
+%
+The receiver  was connected with a $868$~MHz monopole antenna to receive the signals from the tag.
+%
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure12.eps}
+\caption{A received signal including a Morse coded word in three different steps of decoding algorithm.}
+\label{fig:recword}
+\end{figure}
+
+A real-time algorithm was implemented in MATLAB in order to detect the reflected signals.
+%
+The SDR can be connected with MATLAB through the open course GNU radio framework  \cite{radio2007gnu}. 
+%
+In the algorithm, the subcarrier frequency  $F_\text{tag}$   of the tag is known and the algorithm  collects   data in a window with duration: $2 \times$length(maximum word).
+%
+As shown in Fig.~\ref{fig:recalg}, the received I and Q digitized 
+samples  were combined together in  complex numbers.
+%
+Carrier frequency offset  (CFO) was estimated and 
+the signal was corrected.
+%
+This accounts for the difference in carrier frequency between the SDR and the emitter, providing the  variance between the real values and the estimated values of the subcarrier signal.
+%
+The  CFO was estimated after the samples were collected and then all samples were frequency shifted accordingly.
+%
+The absolute value  is taken and  a bandpass  filter with center frequency $F_\text{tag}$ is  applied  in order to appear the Morse code word.
+%
+After considering the signal magnitude, a matched filter was  applied to appear the baseband Mode symbols.
+%
+The matched filter is  a square pulse with duration $T_\text{dot}$.
+%
+The received  signal  of the Fig.~\ref{fig:word}  word is shown  in Fig.~\ref{fig:recword}, (a) after the Band-pass filtering.
+%
+In  Fig.~\ref{fig:recword}, (b) is shown the  above signal  after matched filtering.
+%
+The matched filtering was followed by downsampling with a factor of $100$
+for reducing of the computational complexity.
+%
+Next, the received signal must be digitized using a threshold level.
+%
+AGC  (automatic gain control) and threshold decision is needed because the signal strength varies  over time. 
+%
+The digitization  procedure, which is using a  suitable threshold, is depicted in Fig.~\ref{fig:recword}, (c).
+%
+The digitized signal was classified in order to detect the Morse code symbols and thus the alphabet characters.
+% 
+For the classification, a group of tokens was used with each token to be an
+English alphabet character translated in dots and dashes.
+%
+The output of the algorithm is the English text and number representation of the Morse word.
+
+
+\section{Experimental results}
+\label{sec:exp}
+%
+\begin{figure}[t]
+\centering
+\includegraphics[width=1\columnwidth]{Figures/Figure13.eps}
+\caption{Experimental indoor backscatter topology. The tag was measured in monostatic architecture $2$~m away from  emitter and  receiver antennas.}
+\label{fig:indoor}
+\end{figure}
+%
+The proof-of-concept system was tested indoors 
+in a setup depicted in  Fig.~\ref{fig:indoor} in order to validate the effectiveness of our  backscatter communication system.
+%
+The emitter, the tag and the reader were tested in  monostatic  architecture  in Heriot-Watt University electromagnetics lab.
+%
+A signal generator with a monopole antenna  was utilized as the CW emitter at $868$~MHz, with a transmission power of
+$13$~dBm.
+%
+The SDR reader  was used as the software-defined
+receiver in the same  position with the emitter.
+%
+The receiver was tuned to $868$~MHz  with sampling rate $250$~kbps. 
+%
+The distance between the reader and  emitter antenna was fixed at $17.27$~cm ($\lambda/2$).
+%
+The tag was placed $2$~m away from the emitter/reader antennas and was programmed to produce  words with Morse code symbols. 
+%
+Each word contains   the  $T_\text{leaf}$ and $T_\text{air}$ values in mV at $104.3$~WPM speed.
+%
+The sensor node has low-power consumption and was supplied by the solar panel  and the super capacitor.
+%
+An office lamb was used  as an  indoor source of light.
+%
+Results shown that the transmitted words can be presented clearly at the receiver.  
+
+
+
+
+
+
+Table \ref{tab:BOM} provides cost of the most significant components of the tag  and the current consumption of each one.
+%
+In active mode,  the maximum  overall dissipated  current  at $1.8$~V was measured $11.5~\mu$A ($20.7~\mu$W) when the ADC was  off and $201~\mu$A  ($362~\mu$W) when the ADC was active.
+%
+In the sleep mode operation the current consumption was $0.6~\mu$A ($1~\mu$W). 
+%
+Finally, using discrete  electronic components in terms of bill of materials (BOM), the tag results in the cost  of $14.1$~GBP
+ and
+the prices of each component were found from online suppliers on the order of one. 
+% 
+
+Looking at the market, we found only one leaf sensor provided by Agrihouse Inc.  
+%
+It costs $290$~USD without the wireless communication equipment  and according to the above, this work seems to be a promising  low-cost alternative solution in order to monitor the WDS of the plans.
+%
+%
+
+\begin{table}[t]	
+\renewcommand{\arraystretch}{1.4}
+\centering
+\caption{Tag Current Consumption \& Cost Analysis}
+\scalebox{0.9}
+{
+\begin{tabular}{c||c||c}
+\hline
+\hline
+%\begin{tabular}[x]{@{}c@{}}MSE(Hz$^2$)\\pre-filt.\end{tabular} For forcing newline in cell
+ Tag Part & Cost (GBP)  & Current ($\mu A$)\\
+\hline
+\hline
+MCU (PIC16F1459)&$1.44$ & -\\
+ ACTIVE MODE (ADC OFF) & -& 3.3 $@ V_\text{DD}=1.8$~V\\
+ ACTIVE MODE (ADC ON) &- & 198.4 $@ V_\text{DD}=1.8$~V\\
+ SLEEP MODE &- & 0.6 $@ V_\text{DD}=1.8$~V\\
+\hline
+Timer (TS3002)&$0.54$ & $2.2$ $@ V_\text{DD}=1.2$~V\\
+\hline
+Voltage Reference (XC6504)& $0.42$ & $0.6$ $@ V_\text{DD}=1.8$~V\\
+\hline
+Watchdog timer (TPL5010) & $0.93$ & $0.035$ $@ V_\text{DD}=1.8$~V \\
+\hline
+RF Switches (ADG902+ADG919) & $2.39+2.49$ &  $0.1$ $@ V_\text{DD}=1.8$~V\\
+\hline
+Temp Sensors ($2 \times$LMT84)&$0.64+0.64$& $5.3$ $@ V_\text{DD}=1.8$~V \\
+\hline
+Super Cap (CPH3225A)&$2.05$& - \\
+\hline
+Solar Panel (SP3-37)&$2.20$& - \\
+\hline
+\hline
+Sum&$14.16$& -\\
+Sum ACTIVE MODE (ADC OFF) &-& 11.5 $@ V_\text{DD}=1.8$~V\\
+Sum ACTIVE MODE (ADC ON) &-&  201  $@ V_\text{DD}=1.8$~V\\
+Sum SLEEP MODE &- & 0.6 $@ V_\text{DD}=1.8$~V\\
+\hline
+\hline
+\end{tabular}
+}
+\label{tab:BOM}
+\end{table}
+%
+\section{System considerations \& Future Work}
+\label{sec:comparison}
+%
+%
+The architecture of the proposed WSN  could include many  low-cost emitters/readers, installed in a
+field and around them, multiple, backscatter sensors can be  spread.
+%
+Working in cells that contain groups of tags, each tag can backscatter information to the receiver at a   specific subcarrier frequency.
+%
+The tags inside each cell will employ  frequency-division-multiple-access (FDMA) scheme, whereas the  emitters/readers  could operate in a time-division-multiple-access (TDMA) scheme. 
+%
+Using the above concept the development of a backscatter  sensor network,  could include hundreds of low-cost tags.
+
+%
+The classic  WSN nodes utilize duty cycling operation in
+order to decrease the power consumption thus extending WSN lifetime.
+%
+In this work, the  tag was designed such that as low as possible power and the utilization of duty cycling could further decrease the required energy requirements.
+%
+In \cite{kampianakis2014wireless} was demonstrated that the power consumption of a similar proposed backscatter WSN is lower than a ZigBee-type WSN. 
+%
+ZigBee sensors are based on IEEE 802.15.4 communication protocol and are widespread for  wireless area networks with small digital radios \cite{baronti2007wireless}.
+
+
+Future work will focus on sensing and communication measurements and  
+on  further deceasing the overall cost of the sensor node.
+%
+A future challenge is  also to  design an RF  electromagnetic energy  harvester  to combine all the different forms of ambient energy availability.
+%
+The communication range of  the above deployment can be extended  by the
+following modifications.
+%
+First, it is possible to use circular polarized and directive antennas instead on the monopoles at the  receiver and the reader. 
+%
+%
+The antennas  would be  designed and fabricated on the same substrate with    
+a proper distance  between them in order to maximize gain  and keep mutual coupling between them at low level. 
+%
+With circular polarization the alignment between the reader/emitter antenna and the tag will have less effect.
+%
+Secondly, the RF front-end dipole antenna could be replaced with a better gain antenna. 
+%
+This work is a first attempt to design  a low-cost and low-power leaf sensor  for agriculture  and specific sensing plant measurements  will be prepared in the future. 
+%
+The proposed sensor must be calibrated for different values on relative humidity and soil moisture for a  specific type of plant. 
+%
+Finally, the cost of the tag can be reduced by replacement  of  the super capacitor  and the solar panel with  a cheaper option.
+%
+%
+%
+\section{Conclusion}
+\label{sec:conclusion}
+%
+In this paper a novel  backscatter leaf sensing system for agricultural purposes was presented. 
+%
+Specifically, it includes a  sensor for leaf canopy temperature measurements and  it  can be used for  water stress measurements on plants.
+%
+The sensor node has low-power consumption of only $20~\mu$W and is supplied by a solar panel without need of battery.
+%
+Morse code modulation was used for the wireless communication
+with a low-cost SDR receiver by backscattering RF signals from a carrier emitter.
+%
+The proposed system  is part of the  backscatter WSN for agriculture  with a small cost per sensor node.
+%
+It is suitable for distributed monitoring of environmental parameters in largescale, precision agriculture applications.
+%
+
+
+\section*{Acknowledgment}
+\normalsize 
+The authors would like to thank  Alexios Costouri and all members of  Microwave Lab, Heriot-Watt University, Edinburgh, UK  for their help in various steps throughout this work. 
+
+% Generated by IEEEtran.bst, version: 1.14 (2015/08/26)
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@samestyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
+\providecommand{\BIBentryALTinterwordstretchfactor}{4}
+\providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand{\BIBforeignlanguage}[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+\providecommand{\BIBdecl}{\relax}
+\BIBdecl
+
+\bibitem{ivanov2015precision}
+S.~Ivanov, K.~Bhargava, and W.~Donnelly, ``Precision farming: Sensor
+  analytics,'' \emph{{IEEE} Intelligent Systems J.}, vol.~30, no.~4, pp.
+  76--80, Jul. 2015.
+
+\bibitem{ruiz2009review}
+L.~Ruiz-Garcia, L.~Lunadei, P.~Barreiro, and I.~Robla, ``A review of wireless
+  sensor technologies and applications in agriculture and food industry: state
+  of the art and current trends,'' \emph{Molecular Diversity Preservation
+  International Open Access Sensors J.}, vol.~9, no.~6, pp. 4728--4750, Jun.
+  2009.
+
+\bibitem{yu2009zigbee}
+C.~Yu, Y.~Cui, L.~Zhang, and S.~Yang, ``Zigbee wireless sensor network in
+  environmental monitoring applications,'' in \emph{Proc. {IEEE} Conf. on
+  Wireless Commun. Networking and Mob. Comput. (WiCOM)}, Binjiang, {C}hina,
+  Sept. 2009, pp. 1--5.
+
+\bibitem{fahmi2017prototype}
+N.~Fahmi, S.~Huda, E.~Prayitno, M.~U.~H. Al~Rasyid, M.~C. Roziqin, and M.~U.
+  Pamenang, ``A prototype of monitoring precision agriculture system based on
+  {WSN},'' in \emph{Proc. {IEEE} Int. Sem. on Intelligent Technology and Its
+  Applications (ISITIA)}, {S}urabaya, {I}ndonesia, Aug. 2017, pp. 323--328.
+
+\bibitem{palazzari2017leaf}
+V.~Palazzari, P.~Mezzanotte, F.~Alimenti, F.~Fratini, G.~Orecchini, and
+  L.~Roselli, ``Leaf compatible “eco-friendly” temperature sensor clip for
+  high density monitoring wireless networks,'' \emph{{Cambridge Univ. Press}
+  Wireless Power Transfer}, vol.~4, no.~1, pp. 55--60, Feb. 2017.
+
+\bibitem{seelig2012irrigation}
+H.-D. Seelig, R.~J. Stoner, and J.~C. Linden, ``Irrigation control of cowpea
+  plants using the measurement of leaf thickness under greenhouse conditions,''
+  \emph{Springer J. Irrigation Science}, vol.~30, no.~4, pp. 247--257, Jul.
+  2012.
+
+\bibitem{SG-1000}
+\BIBentryALTinterwordspacing
+\emph{SG-1000 Leaf Sensor}, AgriHouse Inc., 2017. [Online]. Available:
+  \url{https://www.biocontrols.com/Leaf%20Sensor/SG-1000softwareV1.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{abraham2000irrigation}
+N.~Abraham, P.~Hema, E.~Saritha, and S.~Subramannian, ``Irrigation automation
+  based on soil electrical conductivity and leaf temperature,'' \emph{Elsevier
+  Agricultural Water Management J.}, vol.~45, no.~2, pp. 145--157, Jul. 2000.
+
+\bibitem{patel2001canopy}
+N.~Patel, A.~Mehta, and A.~Shekh, ``Canopy temperature and water stress
+  quantificaiton in rainfed pigeonpea ({C}ajanus cajan ({L}.) {M}illsp.),''
+  \emph{Elsevier, Agricultural and Forest Meteorology}, vol. 109, no.~3, pp.
+  223--232, Sep. 2001.
+
+\bibitem{pearcy1971photosynthetic}
+R.~Pearcy, O.~Bjorkman, A.~Harrison, and H.~Mooney, ``Photosynthetic
+  performance of two desert species with {C4} photosynthesis in {D}eath
+  {V}alley, {C}alifornia,'' \emph{Carnegie Institute Year Book}, vol.~70, pp.
+  540--550, 1971.
+
+\bibitem{hornero2017novel}
+G.~Hornero, J.~E. Gait{\'a}n-Pitre, E.~Serrano-Finetti, O.~Casas, and
+  R.~Pallas-Areny, ``A novel low-cost smart leaf wetness sensor,''
+  \emph{Elsevier, Computers and Electronics in Agriculture}, vol. 143, pp.
+  286--292, Dec. 2017.
+
+\bibitem{PHYTOS-31}
+\BIBentryALTinterwordspacing
+\emph{PHYTOS 31, Dielectric Leaf Wetness Sensor, product manual}, Decagon
+  Devices, Inc., 2016. [Online]. Available:
+  \url{http://library.metergroup.com/Manuals/10386_Leaf%20Wetness%20Sensor_Web.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{sample2008design}
+A.~P. Sample, D.~J. Yeager, P.~S. Powledge, A.~V. Mamishev, and J.~R. Smith,
+  ``Design of an {RFID}-based battery-free programmable sensing platform,''
+  \emph{{IEEE} Trans. Instrum. Meas.}, vol.~57, no.~11, pp. 2608--2615, Jun.
+  2008.
+
+\bibitem{assimonis2015sensitive}
+S.~D. Assimonis, S.~N. Daskalakis, and A.~Bletsas, ``Sensitive and efficient
+  {RF} harvesting supply for batteryless backscatter sensor networks,''
+  \emph{{IEEE} Trans. Microw. Theory Techn.}, vol.~64, no.~4, pp. 1327--1338,
+  Apr. 2016.
+
+\bibitem{daskalakis2016soil}
+S.~N. Daskalakis, S.~D. Assimonis, E.~Kampianakis, and A.~Bletsas, ``Soil
+  moisture scatter radio networking with low power,'' \emph{{IEEE} Trans.
+  Microw. Theory Techn.}, vol.~64, no.~7, pp. 2338--2346, Jun. 2016.
+
+\bibitem{kampianakis2014wireless}
+E.~Kampianakis, J.~Kimionis, K.~Tountas, C.~Konstantopoulos, E.~Koutroulis, and
+  A.~Bletsas, ``Wireless environmental sensor networking with analog scatter
+  radio and timer principles,'' \emph{{IEEE} Sensors J.}, vol.~14, no.~10, pp.
+  3365--3376, Oct. 2014.
+
+\bibitem{konstantopoulosconverting}
+C.~Konstantopoulos, E.~Koutroulis, N.~Mitianoudis, and A.~Bletsas, ``Converting
+  a plant to a battery and wireless sensor with scatter radio and ultra-low
+  cost,'' \emph{{IEEE} Trans. Instrum. Meas.}, vol.~65, no.~2, pp. 388--398,
+  Feb. 2016.
+
+\bibitem{pichorim2018two}
+S.~F. Pichorim, N.~J. Gomes, and J.~C. Batchelor, ``Two solutions of soil
+  moisture sensing with {RFID} for landslide monitoring,''
+  \emph{Multidisciplinary Digital Publishing Institute Sensors J.}, vol.~18,
+  no.~2, p. 452, 2018.
+
+\bibitem{daskalakis2017backscatter}
+S.~N. Daskalakis, A.~Collado, A.~Georgiadis, and M.~M. Tentzeris, ``Backscatter
+  morse leaf sensor for agricultural wireless sensor networks,'' in \emph{Proc.
+  {IEEE} Sensors Conf.}, Glasgow, UK, Oct. 2017, pp. 1--3.
+
+\bibitem{fahie1884history}
+J.~J. Fahie, \emph{A History of Electric Telegraphy, to the year 1837}.\hskip
+  1em plus 0.5em minus 0.4em\relax London: E. \& FN Spon, 1884.
+
+\bibitem{proakis2008digital}
+J.~G. Proakis and M.~Salehi, \emph{Digital Communications fifth edition,
+  2007}.\hskip 1em plus 0.5em minus 0.4em\relax McGraw-Hill Companies, Inc.,
+  New York, NY, 2008.
+
+\bibitem{PIC16LF1459}
+\BIBentryALTinterwordspacing
+\emph{{PIC16LF1459}, {USB} Microcontroller with Extreme Low-Power Technology,
+  product manual}, {M}icrochip {T}echnology {I}nc., 2014. [Online]. Available:
+  \url{http://www.microchip.com/downloads/en/DeviceDoc/40001639B.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{TS3002}
+\BIBentryALTinterwordspacing
+\emph{TS3002 1V/1uA Easy-to-Use Silicon Oscillator/Timer, product manual},
+  Silicon Laboratories, Inc., 2014. [Online]. Available:
+  \url{https://docs-apac.rs-online.com/webdocs/1257/0900766b812571eb.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{XC6504}
+\BIBentryALTinterwordspacing
+\emph{{XC6504} Ultra Low Power Consumption Voltage Regulator, product manual},
+  {U}orex {S}emiconductor, 2012. [Online]. Available:
+  \url{https://www.torexsemi.com/file/xc6504/XC6504.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{KonstantopoulosMSc}
+C.~Konstantopoulos, ``Self-{P}owered {P}lant {S}ensor for {S}catter {R}adio,''
+  Master's thesis, School of Electrical and Computer Engineering, Technical
+  University of Crete, Greece, 2015.
+
+\bibitem{instrumentsTPL5010}
+\BIBentryALTinterwordspacing
+\emph{{TPL5010} Nano-power System Timer with Watchdog Function, product
+  manual}, {I}nstruments, {T}exas, 2015. [Online]. Available:
+  \url{http://www.ti.com/lit/ds/symlink/tpl5010.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{instrumentsLMT84}
+\BIBentryALTinterwordspacing
+\emph{{LMT84} Analog Temperature Sensor, product manual}, {I}nstruments,
+  {T}exas, 2017. [Online]. Available:
+  \url{http://www.ti.com/lit/ds/symlink/lmt84.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ADG919}
+\BIBentryALTinterwordspacing
+\emph{ADG919 RF switch, product manual, product manual}, {A}nalog {D}evices,
+  2016. [Online]. Available:
+  \url{http://www.analog.com/media/en/technical-documentation/data-sheets/ADG918\_919.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{niotaki2014solar}
+K.~Niotaki, A.~Collado, A.~Georgiadis, S.~Kim, and M.~M. Tentzeris,
+  ``Solar/{E}lectromagnetic energy harvesting and wireless power
+  transmission,'' \emph{Proc. {IEEE}}, vol. 102, no.~11, pp. 1712--1722, Nov.
+  2014.
+
+\bibitem{SP3-37}
+\BIBentryALTinterwordspacing
+\emph{{SP3-37} {F}lexible {S}olar {P}anel 3{V} @ 22mA, product manual},
+  {P}owerFilm, 2009. [Online]. Available: \url{https://goo.gl/q5ECXh}
+\BIBentrySTDinterwordspacing
+
+\bibitem{NESDR}
+\BIBentryALTinterwordspacing
+\emph{{NESDR} {SMA}rt {B}undle-Premium {RTL-SDR}, product manual}, Noo{E}lec
+  {I}nc., 2017. [Online]. Available:
+  \url{http://www.nooelec.com/store/nesdr-smart.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{radio2007gnu}
+G.~Radio, ``The gnu software radio,'' \emph{Available from World Wide Web:
+  https://gnuradio. org}, 2007.
+
+\bibitem{baronti2007wireless}
+P.~Baronti, P.~Pillai, V.~W. Chook, S.~Chessa, A.~Gotta, and Y.~F. Hu,
+  ``Wireless sensor networks: A survey on the state of the art and the 802.15.4
+  and {Z}igbee standards,'' \emph{Elsevier, Computer Communications}, vol.~30,
+  no.~7, pp. 1655--1695, May. 2007.
+
+\end{thebibliography}
+
+%\vfill
+\end{document}

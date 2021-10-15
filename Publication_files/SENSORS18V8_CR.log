@@ -1,0 +1,950 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.1.15)  7 OCT 2019 11:27
+entering extended mode
+**./SENSORS18V8_CR.tex
+(SENSORS18V8_CR.tex
+LaTeX2e <2018-12-01>
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ieeetran\IEEEtra
+n.cls"
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpdimenC=\dimen104
+\@IEEEtrantmpcountA=\count80
+\@IEEEtrantmpcountB=\count81
+\@IEEEtrantmpcountC=\count82
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd
+"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen105
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen106
+\CLASSINFOnormalsizeunitybaselineskip=\dimen107
+\IEEEnormaljot=\dimen108
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+
+\IEEEquantizedlength=\dimen109
+\IEEEquantizedlengthdiff=\dimen110
+\IEEEquantizedtextheightdiff=\dimen111
+\IEEEilabelindentA=\dimen112
+\IEEEilabelindentB=\dimen113
+\IEEEilabelindent=\dimen114
+\IEEEelabelindent=\dimen115
+\IEEEdlabelindent=\dimen116
+\IEEElabelindent=\dimen117
+\IEEEiednormlabelsep=\dimen118
+\IEEEiedmathlabelsep=\dimen119
+\IEEEiedtopsep=\skip41
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@IEEEsubequation=\count87
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count88
+\c@table=\count89
+\@IEEEeqnnumcols=\count90
+\@IEEEeqncolcnt=\count91
+\@IEEEsubeqnnumrollback=\count92
+\@IEEEquantizeheightA=\dimen120
+\@IEEEquantizeheightB=\dimen121
+\@IEEEquantizeheightC=\dimen122
+\@IEEEquantizeprevdepth=\dimen123
+\@IEEEquantizemultiple=\count93
+\@IEEEquantizeboxA=\box27
+\@IEEEtmpitemindent=\dimen124
+\IEEEPARstartletwidth=\dimen125
+\c@IEEEbiography=\count94
+\@IEEEtranrubishbin=\box28
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathtools\mathto
+ols.sty"
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.
+sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count95
+\calc@Bcount=\count96
+\calc@Adimen=\dimen126
+\calc@Bdimen=\dimen127
+\calc@Askip=\skip44
+\calc@Bskip=\skip45
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count97
+\calc@Cskip=\skip46
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/mathtools\mhsetu
+p.sty"
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.
+sty"
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.
+sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.s
+ty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen128
+))
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.s
+ty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen129
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.s
+ty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count98
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count99
+\leftroot@=\count100
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count101
+\DOTSCASE@=\count102
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen130
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count103
+\c@MaxMatrixCols=\count104
+\dotsspace@=\muskip10
+\c@parentequation=\count105
+\dspbrk@lvl=\count106
+\tag@help=\toks17
+\row@=\count107
+\column@=\count108
+\maxfields@=\count109
+\andhelp@=\toks18
+\eqnshift@=\dimen131
+\alignsep@=\dimen132
+\tagshift@=\dimen133
+\tagwidth@=\dimen134
+\totwidth@=\dimen135
+\lineht@=\dimen136
+\@envbody=\toks19
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count110
+\l_MT_multwidth_dim=\dimen137
+\origjot=\skip50
+\l_MT_shortvdotswithinadjustabove_dim=\dimen138
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen139
+\l_MT_above_intertext_sep=\dimen140
+\l_MT_below_intertext_sep=\dimen141
+\l_MT_above_shortintertext_sep=\dimen142
+\l_MT_below_shortintertext_sep=\dimen143
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amssymb
+.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\amsfont
+s.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphic
+x.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphic
+s.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.st
+y"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\gra
+phics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdf
+tex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen144
+\Gin@req@width=\dimen145
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopd
+f.sty"
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\epstopd
+f-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\infwa
+rerr.sty"
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\grfext.
+sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvdef
+inekeys.sty"
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ltxcm
+ds.sty"
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/oberdiek\kvoptio
+ns.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\kvset
+keys.sty"
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\etexc
+mds.sty"
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\iflua
+tex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+))))
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\pdfte
+xcmds.sty"
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/generic/oberdiek\ifpdf
+.sty"
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+))
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cite\cite.sty"
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
+Package: array 2018/12/30 v2.4k Tabular extension package (FMi)
+\col@sep=\dimen146
+\ar@mcellbox=\box31
+\extrarowheight=\dimen147
+\NC@list=\toks21
+\extratabsurround=\skip51
+\backup@length=\skip52
+\ar@cellbox=\box32
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/eurosym\eurosym.
+sty"
+Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
+\@eurobox=\box33
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/preprint\balance
+.sty"
+Package: balance 1999/02/23 4.3 (PWD)
+\oldvsize=\dimen148
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.s
+ty"
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\col
+or.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+No file SENSORS18V8_CR.aux.
+\openout1 = `SENSORS18V8_CR.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+-- Lines per column: 58 (exact).
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/context/base\supp-pdf.
+mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count111
+\scratchdimen=\dimen149
+\scratchbox=\box34
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen150
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks23
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
+"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+
+("C:\Users\Daskals\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
+"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Citation `ivanov2015precision' on page 1 undefined on input line
+ 108.
+
+
+LaTeX Warning: Citation `ruiz2009review' on page 1 undefined on input line 120.
+
+
+
+LaTeX Warning: Citation `yu2009zigbee' on page 1 undefined on input line 120.
+
+
+LaTeX Warning: Citation `fahmi2017prototype' on page 1 undefined on input line 
+123.
+
+
+LaTeX Warning: Citation `palazzari2017leaf' on page 1 undefined on input line 1
+31.
+
+
+LaTeX Warning: Citation `seelig2012irrigation' on page 1 undefined on input lin
+e 135.
+
+
+LaTeX Warning: Citation `SG-1000' on page 1 undefined on input line 137.
+
+
+LaTeX Warning: Citation `seelig2012irrigation' on page 1 undefined on input lin
+e 141.
+
+
+LaTeX Warning: Citation `seelig2012irrigation' on page 1 undefined on input lin
+e 145.
+
+
+LaTeX Warning: Citation `palazzari2017leaf' on page 1 undefined on input line 1
+48.
+
+
+LaTeX Warning: Citation `abraham2000irrigation' on page 1 undefined on input li
+ne 152.
+
+
+LaTeX Warning: Citation `patel2001canopy' on page 1 undefined on input line 156
+.
+
+
+LaTeX Warning: Citation `pearcy1971photosynthetic' on page 1 undefined on input
+ line 162.
+
+[1{C:/Users/Daskals/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+
+]
+Package epstopdf Info: Source file: <Figures/Figure1.eps>
+(epstopdf)                    date: 2018-02-27 13:43:41
+(epstopdf)                    size: 497607 bytes
+(epstopdf)             Output file: <Figures/Figure1-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:52:42
+(epstopdf)                    size: 12182 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure1-eps-convert
+ed-to.pdf Figures/Figure1.eps>
+(epstopdf)             \includegraphics on input line 170.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure1-eps-converted-to.pdf, id=14, 216.81pt x 106.3975pt>
+File: Figures/Figure1-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure1-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure1-eps-converted-to.pdf  used on input li
+ne 170.
+(pdftex.def)             Requested size: 252.0pt x 123.6728pt.
+
+
+LaTeX Warning: Citation `hornero2017novel' on page 2 undefined on input line 18
+1.
+
+
+LaTeX Warning: Citation `PHYTOS-31' on page 2 undefined on input line 181.
+
+
+LaTeX Warning: Citation `ruiz2009review' on page 2 undefined on input line 184.
+
+
+
+LaTeX Warning: Citation `sample2008design' on page 2 undefined on input line 20
+2.
+
+
+LaTeX Warning: Citation `assimonis2015sensitive' on page 2 undefined on input l
+ine 209.
+
+
+LaTeX Warning: Citation `daskalakis2016soil' on page 2 undefined on input line 
+211.
+
+
+LaTeX Warning: Citation `kampianakis2014wireless' on page 2 undefined on input 
+line 211.
+
+
+LaTeX Warning: Citation `konstantopoulosconverting' on page 2 undefined on inpu
+t line 211.
+
+
+LaTeX Warning: Citation `pichorim2018two' on page 2 undefined on input line 211
+.
+
+
+LaTeX Warning: Citation `daskalakis2016soil' on page 2 undefined on input line 
+213.
+
+
+LaTeX Warning: Citation `kampianakis2014wireless' on page 2 undefined on input 
+line 213.
+
+
+LaTeX Warning: Citation `konstantopoulosconverting' on page 2 undefined on inpu
+t line 224.
+
+
+LaTeX Warning: Citation `pichorim2018two' on page 2 undefined on input line 226
+.
+
+
+LaTeX Warning: Citation `daskalakis2017backscatter' on page 2 undefined on inpu
+t line 230.
+
+
+LaTeX Warning: Reference `fig:backscatterlogic' on page 2 undefined on input li
+ne 234.
+
+
+LaTeX Warning: Reference `sec:Backscatter_morse' on page 2 undefined on input l
+ine 254.
+
+
+LaTeX Warning: Reference `sec:tag' on page 2 undefined on input line 256.
+
+
+LaTeX Warning: Reference `sec:receiver' on page 2 undefined on input line 258.
+
+
+LaTeX Warning: Reference `sec:exp' on page 2 undefined on input line 261.
+
+
+LaTeX Warning: Reference `sec:comparison' on page 2 undefined on input line 263
+.
+
+
+LaTeX Warning: Reference `sec:conclusion' on page 2 undefined on input line 265
+.
+
+Package epstopdf Info: Source file: <Figures/Figure2.eps>
+(epstopdf)                    date: 2018-07-12 11:02:24
+(epstopdf)                    size: 440235 bytes
+(epstopdf)             Output file: <Figures/Figure2-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 11:03:37
+(epstopdf)                    size: 6090 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure2-eps-convert
+ed-to.pdf Figures/Figure2.eps>
+(epstopdf)             \includegraphics on input line 274.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure2-eps-converted-to.pdf, id=15, 345.29pt x 137.51375pt>
+File: Figures/Figure2-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure2-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure2-eps-converted-to.pdf  used on input li
+ne 274.
+(pdftex.def)             Requested size: 252.0pt x 100.36111pt.
+
+LaTeX Warning: Reference `fig:backscatterlogic' on page 2 undefined on input li
+ne 288.
+
+[2 <./Figures/Figure1-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `fig:morse' on page 3 undefined on input line 304.
+
+
+LaTeX Warning: Citation `fahie1884history' on page 3 undefined on input line 30
+9.
+
+
+LaTeX Warning: Reference `fig:morse' on page 3 undefined on input line 322.
+
+Package epstopdf Info: Source file: <Figures/Figure3.eps>
+(epstopdf)                    date: 2018-03-16 12:14:48
+(epstopdf)                    size: 34526878 bytes
+(epstopdf)             Output file: <Figures/Figure3-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:54:18
+(epstopdf)                    size: 376013 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure3-eps-convert
+ed-to.pdf Figures/Figure3.eps>
+(epstopdf)             \includegraphics on input line 328.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure3-eps-converted-to.pdf, id=26, 253.94875pt x 206.7725pt>
+File: Figures/Figure3-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure3-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure3-eps-converted-to.pdf  used on input li
+ne 328.
+(pdftex.def)             Requested size: 226.79846pt x 184.67058pt.
+
+LaTeX Warning: Citation `proakis2008digital' on page 3 undefined on input line 
+341.
+
+
+LaTeX Warning: Reference `fig:morse' on page 3 undefined on input line 351.
+
+Package epstopdf Info: Source file: <Figures/Figure4.eps>
+(epstopdf)                    date: 2018-03-30 13:26:04
+(epstopdf)                    size: 348739 bytes
+(epstopdf)             Output file: <Figures/Figure4-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:55:00
+(epstopdf)                    size: 12149 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure4-eps-convert
+ed-to.pdf Figures/Figure4.eps>
+(epstopdf)             \includegraphics on input line 371.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure4-eps-converted-to.pdf, id=27, 163.61125pt x 86.3225pt>
+File: Figures/Figure4-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure4-eps-converted-to.pdf  used on input li
+ne 371.
+(pdftex.def)             Requested size: 252.0pt x 132.9581pt.
+
+LaTeX Warning: Reference `fig:PCBs' on page 3 undefined on input line 380.
+
+
+LaTeX Warning: Reference `fig:main_unit' on page 3 undefined on input line 382.
+
+
+
+LaTeX Warning: Citation `PIC16LF1459' on page 3 undefined on input line 384.
+
+[3 <./Figures/Figure2-eps-converted-to.pdf> <./Figures/Figure3-eps-converted-to
+.pdf> <./Figures/Figure4-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures/Figure5.eps>
+(epstopdf)                    date: 2018-03-15 10:07:23
+(epstopdf)                    size: 5017286 bytes
+(epstopdf)             Output file: <Figures/Figure5-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:56:11
+(epstopdf)                    size: 22947 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure5-eps-convert
+ed-to.pdf Figures/Figure5.eps>
+(epstopdf)             \includegraphics on input line 404.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure5-eps-converted-to.pdf, id=56, 550.055pt x 356.33125pt>
+File: Figures/Figure5-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure5-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure5-eps-converted-to.pdf  used on input li
+ne 404.
+(pdftex.def)             Requested size: 226.79846pt x 146.9232pt.
+
+
+LaTeX Warning: Reference `fig:PCBs' on page 4 undefined on input line 412.
+
+
+LaTeX Warning: Reference `fig:timer' on page 4 undefined on input line 418.
+
+
+LaTeX Warning: Citation `TS3002' on page 4 undefined on input line 421.
+
+
+LaTeX Warning: Citation `XC6504' on page 4 undefined on input line 423.
+
+
+LaTeX Warning: Citation `KonstantopoulosMSc' on page 4 undefined on input line 
+447.
+
+
+LaTeX Warning: Reference `fig:timer_power' on page 4 undefined on input line 45
+6.
+
+Package epstopdf Info: Source file: <Figures/Figure6.eps>
+(epstopdf)                    date: 2018-03-15 16:04:04
+(epstopdf)                    size: 114632 bytes
+(epstopdf)             Output file: <Figures/Figure6-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:56:11
+(epstopdf)                    size: 3440 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure6-eps-convert
+ed-to.pdf Figures/Figure6.eps>
+(epstopdf)             \includegraphics on input line 462.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure6-eps-converted-to.pdf, id=57, 421.575pt x 316.18124pt>
+File: Figures/Figure6-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure6-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure6-eps-converted-to.pdf  used on input li
+ne 462.
+(pdftex.def)             Requested size: 201.60077pt x 151.20079pt.
+
+LaTeX Warning: Citation `instrumentsTPL5010' on page 4 undefined on input line 
+482.
+
+
+LaTeX Warning: Reference `fig:PCBs' on page 4 undefined on input line 492.
+
+Package epstopdf Info: Source file: <Figures/Figure7.eps>
+(epstopdf)                    date: 2018-03-20 21:13:17
+(epstopdf)                    size: 41607970 bytes
+(epstopdf)             Output file: <Figures/Figure7-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:58:41
+(epstopdf)                    size: 428245 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure7-eps-convert
+ed-to.pdf Figures/Figure7.eps>
+(epstopdf)             \includegraphics on input line 499.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure7-eps-converted-to.pdf, id=58, 208.78pt x 134.5025pt>
+File: Figures/Figure7-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure7-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure7-eps-converted-to.pdf  used on input li
+ne 499.
+(pdftex.def)             Requested size: 226.79846pt x 146.1184pt.
+[4 <./Figures/Figure5-eps-converted-to.pdf> <./Figures/Figure6-eps-converted-to
+.pdf>]
+
+LaTeX Warning: Reference `fig:sensboard' on page 5 undefined on input line 505.
+
+
+
+LaTeX Warning: Citation `instrumentsLMT84' on page 5 undefined on input line 50
+6.
+
+
+LaTeX Warning: Reference `fig:sensboard' on page 5 undefined on input line 510.
+
+
+
+LaTeX Warning: Citation `instrumentsLMT84' on page 5 undefined on input line 51
+3.
+
+
+LaTeX Warning: Reference `eq:temp' on page 5 undefined on input line 524.
+
+Package epstopdf Info: Source file: <Figures/Figure8.eps>
+(epstopdf)                    date: 2018-03-27 14:23:03
+(epstopdf)                    size: 23416867 bytes
+(epstopdf)             Output file: <Figures/Figure8-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:58:54
+(epstopdf)                    size: 232648 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure8-eps-convert
+ed-to.pdf Figures/Figure8.eps>
+(epstopdf)             \includegraphics on input line 532.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure8-eps-converted-to.pdf, id=98, 322.20375pt x 139.52126pt>
+File: Figures/Figure8-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure8-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure8-eps-converted-to.pdf  used on input li
+ne 532.
+(pdftex.def)             Requested size: 252.0pt x 109.12631pt.
+
+LaTeX Warning: Reference `fig:rffront' on page 5 undefined on input line 537.
+
+
+LaTeX Warning: Reference `fig:timer' on page 5 undefined on input line 539.
+
+
+LaTeX Warning: Citation `ADG919' on page 5 undefined on input line 543.
+
+
+LaTeX Warning: Reference `fig:rffront' on page 5 undefined on input line 552.
+
+
+LaTeX Warning: Citation `niotaki2014solar' on page 5 undefined on input line 56
+3.
+
+
+LaTeX Warning: Citation `SP3-37' on page 5 undefined on input line 565.
+
+
+LaTeX Warning: Reference `fig:PCBs' on page 5 undefined on input line 571.
+
+Package epstopdf Info: Source file: <Figures/Figure9.eps>
+(epstopdf)                    date: 2018-03-20 11:16:48
+(epstopdf)                    size: 986117 bytes
+(epstopdf)             Output file: <Figures/Figure9-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 09:58:55
+(epstopdf)                    size: 8248 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure9-eps-convert
+ed-to.pdf Figures/Figure9.eps>
+(epstopdf)             \includegraphics on input line 575.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure9-eps-converted-to.pdf, id=99, 229.85875pt x 228.855pt>
+File: Figures/Figure9-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure9-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure9-eps-converted-to.pdf  used on input li
+ne 575.
+(pdftex.def)             Requested size: 176.39923pt x 175.6392pt.
+
+LaTeX Warning: Reference `fig:tagalgorithm' on page 5 undefined on input line 5
+84.
+
+Package epstopdf Info: Source file: <Figures/Figure10.eps>
+(epstopdf)                    date: 2018-02-28 21:48:58
+(epstopdf)                    size: 6441782 bytes
+(epstopdf)             Output file: <Figures/Figure10-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 10:01:18
+(epstopdf)                    size: 36595 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure10-eps-conver
+ted-to.pdf Figures/Figure10.eps>
+(epstopdf)             \includegraphics on input line 615.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure10-eps-converted-to.pdf, id=100, 299.1175pt x 141.52875pt>
+File: Figures/Figure10-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure10-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure10-eps-converted-to.pdf  used on input l
+ine 615.
+(pdftex.def)             Requested size: 252.0pt x 119.23749pt.
+[5 <./Figures/Figure7-eps-converted-to.pdf> <./Figures/Figure8-eps-converted-to
+.pdf> <./Figures/Figure9-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `fig:word' on page 6 undefined on input line 625.
+
+Package epstopdf Info: Source file: <Figures/Figure11.eps>
+(epstopdf)                    date: 2018-03-25 00:11:15
+(epstopdf)                    size: 1349231 bytes
+(epstopdf)             Output file: <Figures/Figure11-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 10:02:30
+(epstopdf)                    size: 7606 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure11-eps-conver
+ted-to.pdf Figures/Figure11.eps>
+(epstopdf)             \includegraphics on input line 652.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure11-eps-converted-to.pdf, id=126, 273.02pt x 272.01625pt>
+File: Figures/Figure11-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure11-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure11-eps-converted-to.pdf  used on input l
+ine 652.
+(pdftex.def)             Requested size: 151.20154pt x 150.64705pt.
+
+LaTeX Warning: Reference `fig:rffront' on page 6 undefined on input line 659.
+
+
+LaTeX Warning: Citation `NESDR' on page 6 undefined on input line 659.
+
+Package epstopdf Info: Source file: <Figures/Figure12.eps>
+(epstopdf)                    date: 2018-07-09 18:03:29
+(epstopdf)                    size: 2740851 bytes
+(epstopdf)             Output file: <Figures/Figure12-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 10:02:32
+(epstopdf)                    size: 135471 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure12-eps-conver
+ted-to.pdf Figures/Figure12.eps>
+(epstopdf)             \includegraphics on input line 678.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure12-eps-converted-to.pdf, id=127, 552.0625pt x 469.755pt>
+File: Figures/Figure12-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure12-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure12-eps-converted-to.pdf  used on input l
+ine 678.
+(pdftex.def)             Requested size: 252.0pt x 214.43414pt.
+
+LaTeX Warning: Citation `radio2007gnu' on page 6 undefined on input line 685.
+
+
+LaTeX Warning: Reference `fig:recalg' on page 6 undefined on input line 689.
+
+
+LaTeX Warning: Reference `fig:word' on page 6 undefined on input line 705.
+
+
+LaTeX Warning: Reference `fig:recword' on page 6 undefined on input line 705.
+
+
+LaTeX Warning: Reference `fig:recword' on page 6 undefined on input line 707.
+
+
+LaTeX Warning: Reference `fig:recword' on page 6 undefined on input line 716.
+
+[6 <./Figures/Figure10-eps-converted-to.pdf> <./Figures/Figure11-eps-converted-
+to.pdf> <./Figures/Figure12-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures/Figure13.eps>
+(epstopdf)                    date: 2018-03-27 13:05:47
+(epstopdf)                    size: 40511935 bytes
+(epstopdf)             Output file: <Figures/Figure13-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-07-12 10:03:33
+(epstopdf)                    size: 464258 bytes
+(epstopdf)             Command: <epstopdf --outfile=Figures/Figure13-eps-conver
+ted-to.pdf Figures/Figure13.eps>
+(epstopdf)             \includegraphics on input line 731.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/Figure13-eps-converted-to.pdf, id=150, 322.20375pt x 190.7125pt>
+File: Figures/Figure13-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/Figure13-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/Figure13-eps-converted-to.pdf  used on input l
+ine 731.
+(pdftex.def)             Requested size: 252.0pt x 149.16545pt.
+
+
+LaTeX Warning: Reference `fig:indoor' on page 7 undefined on input line 737.
+
+
+LaTeX Warning: Reference `tab:BOM' on page 7 undefined on input line 766.
+
+
+LaTeX Warning: Citation `kampianakis2014wireless' on page 7 undefined on input 
+line 846.
+
+
+LaTeX Warning: Citation `baronti2007wireless' on page 7 undefined on input line
+ 848.
+
+[7 <./Figures/Figure13-eps-converted-to.pdf>]
+Underfull \hbox (badness 3646) in paragraph at lines 1012--1016
+[]\OT1/ptm/m/n/8 E. Kampianakis, J. Kimio-nis, K. Toun-tas, C. Kon-stan-topou-l
+os,
+ []
+
+[8] [9
+
+] (SENSORS18V8_CR.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4195 strings out of 492942
+ 67869 string characters out of 3125201
+ 142290 words of memory out of 3000000
+ 7997 multiletter control sequences out of 15000+200000
+ 48224 words of font info for 97 fonts, out of 3000000 for 9000
+ 1145 hyphenation exceptions out of 8191
+ 42i,13n,27p,374b,329s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.e
+nc}<C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Daskals/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Daskals/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/U
+sers/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr7.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Daskals/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Daskals/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Daskal
+s/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C
+:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
+/times/utmb8a.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmbi8a.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/urw/times/utmr8a.pfb><C:/Users/Daskals/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on SENSORS18V8_CR.pdf (9 pages, 1938645 bytes).
+PDF statistics:
+ 219 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+
